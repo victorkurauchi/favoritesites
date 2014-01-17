@@ -71,8 +71,8 @@ app.get('/api/name', api.name);
 app.get('*', routes.index);
 
 // favorites
-app.post('/favorite', favorite.create);
-app.get('/favorite', favorite.list);
+app.post('/api/favorite', favorite.create);
+app.get('/api/favorite', favorite.list);
 
 
 /**
