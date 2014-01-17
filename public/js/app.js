@@ -10,12 +10,12 @@ angular.module('favsites', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/inicio', {
+    when('/', {
       templateUrl: 'partials/favorite',
       controller: 'FavoriteController'
     }).
     otherwise({
-      redirectTo: '/inicio'
+      redirectTo: '/'
     });
 
   $locationProvider.html5Mode(true);

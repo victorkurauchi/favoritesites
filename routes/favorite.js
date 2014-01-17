@@ -12,7 +12,6 @@ exports.retrieve = function(req, res){
 
 exports.list = function(req, res){  
   console.log("list");
-  console.log('aaaaaaaaaaaaa cade');
   _model.find(req, res);
 }
 

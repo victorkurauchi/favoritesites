@@ -3,15 +3,16 @@ div.row
     h1.page-header  
       small ~ cadastre seus principais sites, não feeds.
 
-    button.pull-right.btn.btn-primary(type="button", data-toggle="modal", data-target="#new") favorito &nbsp;
+    button.pull-right.btn.btn-primary(type="button", data-toggle="modal", data-target="#new")
       span
         i.glyphicon.glyphicon-plus
 
 div.row
   div.col-lg-4.col-sm-6(ng-repeat="favorite in favorites")
     img.img-circle.img-responsive(src="http://placehold.it/200x200")
-    h3 {{favorite.title}}
-      small {{favorite.description}}
+    a(href="{{favorite.url}}", target="_blank")  
+      h3 {{favorite.title}} &nbsp;&nbsp;
+        small {{favorite.description}}
     p {{favorite.extra}}
 
 .modal.fade#new(tabindex="-1", role="dialog", aria-labelledby="favorito", aria-hidden="true")

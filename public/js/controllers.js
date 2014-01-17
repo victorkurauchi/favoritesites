@@ -5,57 +5,43 @@
 angular.module('favsites.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
 
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function (data, status, headers, config) {
-      $scope.name = 'Error!'
-    });
-
   }).
-  controller('FavoriteController', function ($scope, $http) {
+  controller('FavoriteController', function ($scope, $http, Icons) {
 
     function Favorite() {
-
-      $http.get('/favorite').success(function(data) {
-
-        console.log(data);
-
-        $scope.favorites = data;
-
-      }).error(function(data) {
-        $scope.message = 'Ocorreu um erro inesperado, código: ' + data;
-      });
 
       this.title = '';
       this.description = '';
       this.url = '';
       this.extra = '';
     }
-   
-    $scope.favorite = new Favorite();
-   
-    $scope.contatos = [];
 
-    $scope.createFavorite = function() {
-      $http.post('/favorite', $scope.favorite).success(function(data) {
+    console.log(Icons.getFavicon('http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local'));
 
-        $scope.favorites.push(data);
-        $scope.favorite = new Favorite();
-      });
-    }
+    $http.get('/api/favorites').success(function(data) {
 
-    $scope.listFavorites = function() {
-      $http.get('/favorite').success(function(data) {
+        for (var x in data) {
+          if (data.hasOwnProperty(x)) {
+            //console.log(Icons.getFavicon(data[x].url));
+            //data[x].image = Icons.getFavicon(data[x].url);
+            console.log(data[x]);
+          }
+        }
 
         $scope.favorites = data;
 
       }).error(function(data) {
         $scope.message = 'Ocorreu um erro inesperado, código: ' + data;
+      });
+   
+    $scope.favorite  = new Favorite();
+    $scope.favorites = [];
+
+    $scope.createFavorite = function() {
+      $http.post('/api/favorite', $scope.favorite).success(function(data) {
+
+        $scope.favorites.push(data);
+        $scope.favorite = new Favorite();
       });
     }
 
