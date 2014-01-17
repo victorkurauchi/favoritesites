@@ -1,0 +1,46 @@
+div.row
+  div.col-lg-12
+    h1.page-header  
+      small ~ cadastre seus principais sites, não feeds.
+
+    button.pull-right.btn.btn-primary(type="button", data-toggle="modal", data-target="#new") favorito &nbsp;
+      span
+        i.glyphicon.glyphicon-plus
+
+div.row
+  div.col-lg-4.col-sm-6(ng-repeat="favorite in favorites")
+    img.img-circle.img-responsive(src="http://placehold.it/200x200")
+    h3 {{favorite.title}}
+      small {{favorite.description}}
+    p {{favorite.extra}}
+
+.modal.fade#new(tabindex="-1", role="dialog", aria-labelledby="favorito", aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+        h4.modal-title cadastro
+
+      .modal-body
+        form(role="form")
+          .form-group
+            label(for="url") URL
+            input.form-control#url(type="text", ng-model="favorite.url", required="required")
+          
+          .form-group
+            label(for="title") Título
+            input.form-control#title(type="text", ng-model="favorite.title", required="required")
+
+          .form-group
+            label(for="description") Descrição
+            input.form-control#description(type="text", ng-model="favorite.description", required="required")
+
+          .form-group
+            label(for="extra") Mais detalhes ?
+            input.form-control#extra(type="text", ng-model="favorite.extra")
+
+      .modal-footer
+        button.btn.btn-default(type="button", data-dismiss="modal") Cancelar
+        button.btn.btn-success(type="button", data-dismiss="modal", ng-click="createFavorite()") Cadastrar
+
+

@@ -11,8 +11,8 @@ angular.module('favsites', [
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/inicio', {
-      templateUrl: 'partials/inicio',
-      controller: 'MainController'
+      templateUrl: 'partials/favorite',
+      controller: 'FavoriteController'
     }).
     otherwise({
       redirectTo: '/inicio'

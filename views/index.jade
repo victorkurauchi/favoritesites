@@ -14,19 +14,7 @@ block body
             span.icon-bar
 
           <!-- logo, its better with responsive image -->    
-          a.navbar-brand(href="/inicio") Bootstrap
-
-        <!-- nav links -->
-        div.collapse.navbar-collapse.navbar-ex1-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href="/sobre") sobre
-            li 
-              a(href="/servicos") serviços
-            li 
-              a(href="/simulacao") simulação
-            li 
-              a(href="/contato") contato
+          a.navbar-brand(href="/inicio") logotipo
 
     <!-- /header -->    
 
@@ -35,7 +23,7 @@ block body
       div(ng-view)
 
       hr 
-      
+
       footer
         div.row
           div.col-lg-12
@@ -49,5 +37,3 @@ block body
   script(src='js/directives.js')
   script(src='js/lib/bootstrap/jquery-1.10.2.js')
   script(src='js/lib/bootstrap/bootstrap.js')
-  script(src='https://cdn.firebase.com/v0/firebase.js')
-  script(src='https://cdn.firebase.com/libs/angularfire/0.5.0-rc1/angularfire.js')
