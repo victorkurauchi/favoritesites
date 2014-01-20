@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
+    http     = require('http');
 
 mongoose.connect('mongodb://localhost/favoritesites');
  
@@ -61,6 +62,27 @@ exports.find = function(req, res) {
   var query = {};
 
   Model.find(query, function (err, favorites) {
+
+    // var options = {
+    //   host: 'www.garotasestupidas.com.br'
+    // };
+
+    // http.get(options, function(http_res) {
+    //     http_res.on('data', function (chunk) {
+    //         //console.log('BODY: ' + chunk);
+
+    //         for (var x in favorites) {
+    //           if (favorites.hasOwnProperty(x)) {
+    //             console.log('nice');
+    //             favorites.htmlContent=chunk;
+    //           }
+    //         }
+
+    //         console.log(favorites);
+    //     });
+    // });
+
+
     if(err) {
       console.log('Houve algum erro, tente novamente', err);
     } else {

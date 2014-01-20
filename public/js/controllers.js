@@ -16,7 +16,7 @@ angular.module('favsites.controllers', []).
       this.extra = '';
     }
 
-    console.log(Icons.getFavicon('http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local'));
+    //console.log(Icons.getFavicon('http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local'));
 
     $http.get('/api/favorites').success(function(data) {
 

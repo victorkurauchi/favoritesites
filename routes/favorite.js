@@ -11,6 +11,7 @@ exports.retrieve = function(req, res){
 }
 
 exports.list = function(req, res){  
+  
   console.log("list");
   _model.find(req, res);
 }
